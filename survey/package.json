@@ -21,17 +21,24 @@
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
+    "@vue/component-compiler-utils": "^3.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettierx": "^0.4.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "parcel-bundler": "^1.12.4",
-    "babel-eslint": "^10.0.3",
-    "eslint-plugin-prettierx": "^0.4.0"
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.6.0"
+    "@babel/polyfill": "^7.6.0",
+    "onsenui": "^2.10.10",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.4",
+    "vue-onsenui": "^2.6.2"
   }
 }
