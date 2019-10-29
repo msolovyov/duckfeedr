@@ -1,0 +1,37 @@
+{
+  "name": "duckfeedr",
+  "version": "1.0.0",
+  "description": "survey and analytics of duck feeding behaviour around the world",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel app/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msolovyov/duckfeedr.git"
+  },
+  "author": "Michael Solovyov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msolovyov/duckfeedr/issues"
+  },
+  "homepage": "https://github.com/msolovyov/duckfeedr#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "parcel-bundler": "^1.12.4",
+    "babel-eslint": "^10.0.3",
+    "eslint-plugin-prettierx": "^0.4.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0"
+  }
+}

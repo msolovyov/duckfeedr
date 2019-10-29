@@ -1,0 +1,17 @@
+{
+  "parserOptions": { "parser": "babel-eslint" },
+  "extends": [
+    "standard",
+    "plugin:vue/recommended",
+    "plugin:promise/recommended",
+    "plugin:prettierx/standardx"
+  ],
+  "plugins": ["standard", "promise", "promise", "prettierx"],
+  "rules": {
+    "no-var": "error",
+    "no-param-reassign": "error",
+    "promise/avoid-new": "off",
+    "vue/require-v-for-key": "off",
+    "vue/valid-template-root": "off"
+  }
+}
