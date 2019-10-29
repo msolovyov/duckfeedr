@@ -4,7 +4,10 @@ import { Buffer } from 'buffer'
 import config from '../config'
 const storage = {
   async save (data, tableName) {
-    const body = {}
+    const body = {
+      data: data,
+      tableName: tableName
+    }
     const buffer = Buffer.from(JSON.stringify(body))
 
     const parsed = await ky.post(config.api.duckDbSave, { body: buffer }).json()

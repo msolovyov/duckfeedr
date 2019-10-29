@@ -1,6 +1,6 @@
 const config = {
   api: {
-    duckDbSave: ''
+    duckDbSave: 'https://uaq6dc92e3.execute-api.us-west-2.amazonaws.com/latest/duckdbsave'
   }
 }
 

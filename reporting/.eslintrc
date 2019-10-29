@@ -1,0 +1,18 @@
+{
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "extends": [
+    "standard",
+    "plugin:promise/recommended"
+  ],
+  "plugins": [
+    "standard",
+    "promise"
+  ],
+  "rules": {
+    "no-var": "error",
+    "no-param-reassign": "error",
+    "promise/avoid-new": "off"
+  }
+}

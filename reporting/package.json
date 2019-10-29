@@ -1,0 +1,34 @@
+{
+  "name": "reporting",
+  "version": "1.0.0",
+  "description": "aws rds duck report save",
+  "files": [
+    "bin"
+  ],
+  "main": "api.js",
+  "scripts": {
+    "transpile": "npx babel src --out-dir bin",
+    "create": "npm run transpile && claudia create --profile claudia --region us-west-2 --api-module bin/api --policies policy",
+    "update": "npm run transpile && claudia update --profile claudia",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "claudia": "^5.9.1",
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.558.0",
+    "claudia-api-builder": "^4.1.2",
+    "data-api-client": "^1.0.0-beta"
+  }
+}
