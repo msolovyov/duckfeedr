@@ -130,6 +130,7 @@ export default {
       console.log(data)
       if (data.feedtime && data.food && data.amount && data.timezone) {
         this.modelPresent(data)
+        this.$ons.notification.alert('Your duck feeding report has been submitted')
       }
     },
     modelPresent (data) {
