@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel app/index.html",
+    "build": "parcel build app/index.html",
     "test": "npx tape -r \"@babel/register\" \"./tests/*.test.js\""
   },
   "repository": {
