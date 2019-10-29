@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "reporting-executor",
+    "name": "reporting",
+    "region": "us-west-2"
+  },
+  "api": {
+    "id": "uaq6dc92e3",
+    "module": "bin/api"
+  }
+}

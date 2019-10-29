@@ -117,19 +117,23 @@ export default {
       this.longitude = coords.longitude
     },
     submitForm () {
+      const timezone = timeHelper.getTimeZoneValue()
       const data = {
-        time: this.feedTime,
+        newReport: true,
+        feedtime: this.feedTime,
         food: this.formFoodType,
         amount: this.formFoodAmount,
-        location: { latitude: this.latitude, longitude: this.longitude }
+        latitude: this.latitude,
+        longitude: this.longitude,
+        timezone: timezone
       }
       console.log(data)
-      if (data.time && data.food && data.amount && data.location) {
+      if (data.feedtime && data.food && data.amount && data.timezone) {
         this.modelPresent(data)
       }
     },
     modelPresent (data) {
-      store.preset(data)
+      store.present(data)
       this.nextAction()
     },
     async nextAction () {
