@@ -3,10 +3,10 @@
   "extends": [
     "standard",
     "plugin:vue/recommended",
-    "plugin:promise/recommended",
-    "plugin:prettierx/standardx"
+    "plugin:promise/recommended"
+
   ],
-  "plugins": ["standard", "promise", "promise", "prettierx"],
+  "plugins": ["standard", "promise"],
   "rules": {
     "no-var": "error",
     "no-param-reassign": "error",
