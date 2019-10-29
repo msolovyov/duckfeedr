@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel app/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx tape -r \"@babel/register\" \"./tests/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -21,21 +21,33 @@
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.0.0",
     "@vue/component-compiler-utils": "^3.0.0",
     "babel-eslint": "^10.0.3",
     "babel-preset-env": "^1.7.0",
     "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettierx": "^0.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^5.2.3",
     "parcel-bundler": "^1.12.4",
+    "tape": "^4.11.0",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
+    "buffer": "^5.4.3",
+    "core-js": "^2.6.10",
+    "date-fns": "^2.6.0",
+    "date-fns-tz": "^1.0.8",
+    "ky": "^0.15.0",
+    "ky-universal": "^0.3.0",
+    "lodash": "^4.17.15",
+    "lodash.merge": "^4.6.2",
     "onsenui": "^2.10.10",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.4",
