@@ -1,29 +1,25 @@
 <template>
-  <feedForm></feedForm>
+  <feedForm />
 </template>
 
 <script>
 import feedForm from './components/feedForm'
 export default {
-	name: 'mainPage',
-  components: {feedForm},
+  name: 'MainPage',
+  components: { feedForm },
   data () {
     return {
-      // model 
+      // model
     }
   },
   computed: {
     // state
   },
   methods: {
-    modelPresent (data) {
-    },
-    nextAction () {
-    }
+    modelPresent (data) {},
+    nextAction () {}
   }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
