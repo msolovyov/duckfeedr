@@ -55,7 +55,7 @@
           <div class="center">
             <v-ons-input
               type="number"
-              placeholder=""
+              placeholder="Number of ducks"
               step="1"
               min="0"
               required
