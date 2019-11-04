@@ -12,5 +12,4 @@ Targets: mobile browsers first and chrome on desktop.
 TODO: 
 - internationalization of text based on timezone
 - configure quicksight dashboard
-- Select food choices dropdown
 - prewarning before asking for geolocation
