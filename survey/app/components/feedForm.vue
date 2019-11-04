@@ -19,12 +19,20 @@
         </v-ons-list-item>
         <v-ons-list-header>What food?</v-ons-list-header>
         <v-ons-list-item>
-          <div class="center">
-            <v-ons-input
-              v-model="formFoodType"
-              required
-            />
-          </div>
+          <v-ons-select
+            id="foodTypeSelect"
+            v-model="formFoodType"
+            select-id="foodTypeSelectInner"
+            required
+          >
+            <option
+              v-for="item in feedTypeItems"
+              :key="item.value"
+              :value="item.value"
+            >
+              {{ item.text }}
+            </option>
+          </v-ons-select>
         </v-ons-list-item>
         <v-ons-list-header>How much food?</v-ons-list-header>
         <v-ons-list-item>
@@ -90,8 +98,25 @@ export default {
       formFoodType: '',
       formFoodAmount: '',
       latitude: '',
-      longitude: ''
+      longitude: '',
       // model
+      feedTypeItems: [
+        { text: 'Cracked corn', value: 'Cracked corn' },
+        { text: 'Wheat, barley, or similar grains', value: 'Wheat, barley, or similar grains' },
+        { text: 'Oats (uncooked; rolled or quick)', value: 'Oats (uncooked; rolled or quick)' },
+        { text: 'Rice', value: 'Rice' },
+        { text: 'Milo seed', value: 'Milo seed' },
+        { text: 'Birdseed', value: 'Birdseed' },
+        { text: 'Grapes', value: 'Grapes' },
+        { text: 'Nut hearts or pieces', value: 'N' },
+        { text: 'Frozen peas', value: 'Frozen peas' },
+        { text: 'Earthworms', value: 'Earthworms' },
+        { text: 'Mealworms', value: 'Mealworms' },
+        { text: 'Chopped lettuce or other greens or salad mixes', value: 'Chopped lettuce or other greens or salad mixes' },
+        { text: 'Vegetable trimmings or peels', value: 'Vegetable trimmings or peels' },
+        { text: 'Duck feed pellets or poultry starter pellets ', value: 'Duck feed pellets or poultry starter pellets ' }
+
+      ]
     }
   },
   computed: {
