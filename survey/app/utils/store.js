@@ -2,7 +2,7 @@ import storage from './storage'
 
 const store = {
   model: {
-    type: 'duckReport',
+    type: 'duckReports',
     payload: ''
   },
   prepareFormData (data) {
@@ -18,7 +18,7 @@ const store = {
   async present (data = {}) {
     this.prepareFormData(data)
     try {
-      await storage.save(this.model, 'duckreports')
+      await storage.save(this.model.payload, this.model.type)
     } catch (e) {
       if (e.status === 409) {
         // await sleep(100)

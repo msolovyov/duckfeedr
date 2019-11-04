@@ -16,7 +16,7 @@ api.post(
   async function (request) {
     console.log(request)
     const req = JSON.parse(request.body)
-    console.log(req.data.payload)
+    console.log(req.data)
 
     //feedtime DATETIME NOT NULL,
     // food VARCHAR(255) NOT NULL,
@@ -26,10 +26,10 @@ api.post(
     //         timezone VARCHAR(255) NOT NULL
     let insert = await data.query(
       `INSERT INTO duckreports (feedtime,food, amount, latitude,longitude, timezone) VALUES(:feedtime,:food, :amount,:latitude, :longitude, :timezone)`,
-      req.data.payload
+      req.data
     )
 
-      return insert
+    return insert
   },
   { success: 201 }
 ) // returns HTTP status 201 - Created if successful
