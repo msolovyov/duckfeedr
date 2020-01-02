@@ -62,6 +62,7 @@
         <v-ons-list-item>
           <div class="center">
             <v-ons-input
+              v-model="formDuckAmount"
               type="number"
               placeholder="Number of ducks"
               step="1"
@@ -99,6 +100,7 @@ export default {
       formFoodAmount: '',
       latitude: '',
       longitude: '',
+      formDuckAmount: '',
       // model
       feedTypeItems: [
         { text: 'Cracked corn', value: 'Cracked corn' },
@@ -150,7 +152,8 @@ export default {
         amount: this.formFoodAmount,
         latitude: this.latitude,
         longitude: this.longitude,
-        timezone: timezone
+        timezone: timezone,
+        duckAmount: this.formDuckAmount
       }
       console.log(data)
       if (data.feedtime && data.food && data.amount && data.timezone) {
