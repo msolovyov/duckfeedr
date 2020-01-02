@@ -200,7 +200,7 @@ export default {
         this.$ons.notification.alert('Your duck feeding report has been submitted')
       }
     },
-    reset () {
+    async reset () {
       this.feedTime = ''
       this.formFoodType = ''
       this.formFoodAmount = ''
@@ -209,12 +209,12 @@ export default {
       this.formDuckAmount = ''
       this.submitting = false
       this.presented = false
-      this.modelPresent()
+      this.nextAction()
     },
     async modelPresent (data) {
       await store.present(data)
       this.presented = true
-      this.nextAction()
+      await this.nextAction()
     },
     async nextAction () {
       if (!this.feedtime) {
