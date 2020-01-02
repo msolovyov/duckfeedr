@@ -118,7 +118,9 @@ export default {
         { text: 'Vegetable trimmings or peels', value: 'Vegetable trimmings or peels' },
         { text: 'Duck feed pellets or poultry starter pellets ', value: 'Duck feed pellets or poultry starter pellets ' }
 
-      ]
+      ],
+      // state
+      submitted: false
     }
   },
   computed: {
@@ -132,7 +134,6 @@ export default {
       }
     }
 
-    // state
   },
   beforeMount () {
     this.nextAction()
@@ -143,7 +144,7 @@ export default {
       this.latitude = coords.latitude
       this.longitude = coords.longitude
     },
-    submitForm () {
+    async submitForm () {
       const timezone = timeHelper.getTimeZoneValue()
       const data = {
         newReport: true,
@@ -156,10 +157,21 @@ export default {
         duckAmount: this.formDuckAmount
       }
       console.log(data)
-      if (data.feedtime && data.food && data.amount && data.timezone) {
-        this.modelPresent(data)
+      if (data.feedtime && data.food && data.amount && data.timezone && data.duckAmount) {
+        await this.modelPresent(data)
         this.$ons.notification.alert('Your duck feeding report has been submitted')
+        this.submitted = true
       }
+    },
+    resetForm () {
+      this.feedTime = ''
+      this.formFoodType = ''
+      this.formFoodAmount = ''
+      this.latitude = ''
+      this.longitude = ''
+      this.formDuckAmount = ''
+      this.submitted = false
+      this.modelPresent()
     },
     modelPresent (data) {
       store.present(data)
@@ -171,6 +183,9 @@ export default {
       }
       if (!this.latitude || !this.longitude) {
         await this.refreshLocation()
+      }
+      if (this.submitted) {
+        this.resetForm()
       }
     }
   }
