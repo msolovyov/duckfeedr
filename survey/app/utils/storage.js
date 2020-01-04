@@ -3,7 +3,7 @@ import ky from 'ky-universal'
 import { Buffer } from 'buffer'
 import config from '../config'
 const storage = {
-  async save (data, tableName) {
+  async save(data, tableName) {
     const body = {
       data: data,
       tableName: tableName
@@ -12,6 +12,9 @@ const storage = {
 
     const parsed = await ky.post(config.api.duckDbSave, { body: buffer }).json()
     console.log(parsed)
+  },
+  async loadDuckReport() {
+    return ky.get(config.api.duckDbReport).json()
   }
 }
 export default storage

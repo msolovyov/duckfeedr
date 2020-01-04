@@ -21,6 +21,7 @@
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/register": "^7.0.0",
     "@vue/component-compiler-utils": "^3.0.0",
@@ -42,6 +43,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
     "buffer": "^5.4.3",
+    "chart.js": "^2.9.3",
+    "chartjs-plugin-colorschemes": "^0.4.0",
     "core-js": "^2.6.10",
     "date-fns": "^2.6.0",
     "date-fns-tz": "^1.0.8",
@@ -51,6 +54,7 @@
     "lodash.merge": "^4.6.2",
     "onsenui": "^2.10.10",
     "vue": "^2.6.10",
+    "vue-async-computed": "^3.8.2",
     "vue-hot-reload-api": "^2.3.4",
     "vue-onsenui": "^2.6.2"
   }

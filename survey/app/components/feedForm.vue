@@ -1,5 +1,15 @@
 <template>
   <v-ons-page>
+    <v-ons-modal
+      :visible="submitting"
+    >
+      <p style="text-align: center">
+        Submitting <v-ons-icon
+          icon="fa-spinner"
+          spin
+        />
+      </p>
+    </v-ons-modal>
     <v-ons-toolbar>
       <div class="center">
         duckFeedr
@@ -110,7 +120,7 @@ export default {
         { text: 'Milo seed', value: 'Milo seed' },
         { text: 'Birdseed', value: 'Birdseed' },
         { text: 'Grapes', value: 'Grapes' },
-        { text: 'Nut hearts or pieces', value: 'N' },
+        { text: 'Nut hearts or pieces', value: 'Nut hearts or pieces' },
         { text: 'Frozen peas', value: 'Frozen peas' },
         { text: 'Earthworms', value: 'Earthworms' },
         { text: 'Mealworms', value: 'Mealworms' },
@@ -120,9 +130,11 @@ export default {
 
       ],
       // state
-      submitted: false
+      submitting: false,
+      presented: false
     }
   },
+
   computed: {
     // form
     formFeedTime: {
@@ -132,6 +144,26 @@ export default {
       set (val) {
         this.feedTime = val
       }
+    },
+    // state
+    formFilled () {
+      if (this.feedTime &&
+      this.formFoodType &&
+      this.formFoodAmount &&
+      this.latitude &&
+      this.longitude &&
+      this.formDuckAmount) {
+        return true
+      } else {
+        return false
+      }
+    },
+    submitted () {
+      if (this.submitting && this.presented && this.formFilled) {
+        return true
+      } else {
+        return false
+      }
     }
 
   },
@@ -139,6 +171,12 @@ export default {
     this.nextAction()
   },
   methods: {
+    showModal () {
+      this.modalVisible = true
+    },
+    closeModal () {
+      this.modalVisible = false
+    },
     async refreshLocation () {
       const coords = await geoHelper.getCoordinates()
       this.latitude = coords.latitude
@@ -158,24 +196,26 @@ export default {
       }
       console.log(data)
       if (data.feedtime && data.food && data.amount && data.timezone && data.duckAmount) {
+        this.submitting = true
         await this.modelPresent(data)
         this.$ons.notification.alert('Your duck feeding report has been submitted')
-        this.submitted = true
       }
     },
-    resetForm () {
+    async reset () {
       this.feedTime = ''
       this.formFoodType = ''
       this.formFoodAmount = ''
       this.latitude = ''
       this.longitude = ''
       this.formDuckAmount = ''
-      this.submitted = false
-      this.modelPresent()
-    },
-    modelPresent (data) {
-      store.present(data)
+      this.submitting = false
+      this.presented = false
       this.nextAction()
+    },
+    async modelPresent (data) {
+      await store.present(data)
+      this.presented = true
+      await this.nextAction()
     },
     async nextAction () {
       if (!this.feedtime) {
@@ -185,7 +225,7 @@ export default {
         await this.refreshLocation()
       }
       if (this.submitted) {
-        this.resetForm()
+        this.reset()
       }
     }
   }
