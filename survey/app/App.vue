@@ -24,8 +24,8 @@ export default {
           page: feedForm
         },
         {
-          icon: 'fa-sliders',
-          label: 'Settings',
+          icon: 'fa-chart-bar',
+          label: 'Reports',
           page: report
         }
       ]

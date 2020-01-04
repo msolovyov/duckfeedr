@@ -5,70 +5,75 @@
         duckFeedr report
       </div>
     </v-ons-toolbar>
-    <div
-      class="chart-container"
-      style="position: relative; height:40vh; width:80vw"
-    >
-      <canvas id="chart" />
-    </div>
+    <v-ons-list>
+      <v-ons-list-header>Food and Ducks amounts</v-ons-list-header>
+      <v-ons-list-item>
+        <canvas
+          v-scatterD="scata"
+        />
+      </v-ons-list-item>
+      <v-ons-list-item>
+        <div hidden>
+          {{ model.resultsTable.length }} - {{ model.updated }}
+        </div>
+      </v-ons-list-item>
+    </v-ons-list>
   </v-ons-page>
 </template>
 
 <script>
 import store from '../utils/store'
-import Chart from 'chart.js'
+
+import chartHelper from '../utils/chartHelper'
 export default {
   name: '',
   components: {},
+  directives: {
+    scatterD: function (canvasElement, binding) {
+      if (binding.value) {
+        const chart = binding.value.draw(canvasElement)
+      }
+    }
+  },
+
   data () {
     return {
+
       // model
-      tableData: store.model.resultsTable
+      model: store.model
+
     }
   },
   computed: {
-    // state
+    scata: {
+      get () {
+        return new Charter(this.model.resultsTable)
+      }
+    }
   },
-  beforeMount () {
-    this.nextAction()
+  async beforeMount () {
+
   },
   methods: {
-    makeChart () {
-      const food = this.tableData.records.map(x => x.food)
-      const data = this.tableData.records.map(d => ({ x: d.duckAmount, y: d.amount }))
-      const dataSets = this.tableData.records.map(t => (
-        {
-          label: t.food,
-          x: t.duckAmount,
-          y: t.amount
 
-        }
-      ))
-      console.log(dataSets)
-
-      const myChart = new Chart('chart', {
-        type: 'scatter',
-        data: {
-          labels: food,
-          datasets: dataSets
-        },
-        options: {
-          scales: {
-            xAxes: [{
-              type: 'linear',
-              position: 'bottom'
-            }]
-          }
-        }
-      })
-    },
     modelPresent (data) {
+      this.nextAction()
     },
     async nextAction () {
       await store.loadResultsTable()
-      this.makeChart()
-      console.log(this.tableData.records)
     }
+  }
+}
+
+// takes in list of records and then draws chart on canvas element
+class Charter {
+  records = []
+  constructor (records) {
+    this.records = records
+  }
+
+  draw (canvasElement) {
+    return chartHelper.drawScatterChart(canvasElement, this.records)
   }
 }
 </script>

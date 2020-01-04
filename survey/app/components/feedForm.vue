@@ -120,7 +120,7 @@ export default {
         { text: 'Milo seed', value: 'Milo seed' },
         { text: 'Birdseed', value: 'Birdseed' },
         { text: 'Grapes', value: 'Grapes' },
-        { text: 'Nut hearts or pieces', value: 'N' },
+        { text: 'Nut hearts or pieces', value: 'Nut hearts or pieces' },
         { text: 'Frozen peas', value: 'Frozen peas' },
         { text: 'Earthworms', value: 'Earthworms' },
         { text: 'Mealworms', value: 'Mealworms' },
@@ -134,6 +134,7 @@ export default {
       presented: false
     }
   },
+
   computed: {
     // form
     formFeedTime: {
