@@ -7,6 +7,8 @@ View the live survey app here: https://msolovyov.github.io/duckfeedr/
 
 [![Build Status](https://travis-ci.com/msolovyov/duckfeedr.svg?branch=master)](https://travis-ci.com/msolovyov/duckfeedr)
 
+Divided into two parts. Reporting is the lambda functions for interacting with the aurora serverless database. Survey is the frontend application for commiting the data and retrieving it from aws lambda. 
+
 Targets: mobile browsers first and chrome on desktop. 
 
 Project Details:
