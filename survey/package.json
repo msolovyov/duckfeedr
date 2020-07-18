@@ -50,7 +50,7 @@
     "date-fns-tz": "^1.0.8",
     "ky": "^0.15.0",
     "ky-universal": "^0.3.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash.merge": "^4.6.2",
     "onsenui": "^2.10.10",
     "vue": "^2.6.10",
